@@ -5,6 +5,7 @@ import com.workintech.s17d2.model.Experience;
 import com.workintech.s17d2.tax.Taxable;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -41,6 +42,7 @@ public class DeveloperController {
     }
 
     @PostMapping("")
+    @ResponseStatus(HttpStatus.CREATED)
     public Developer load(@RequestBody Developer developer){
         developers.put(developer.getId(),developer);
         return developer;
